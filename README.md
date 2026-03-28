@@ -4,6 +4,9 @@
 
 - Power day-ahead prices: Auction market for day ahead power.
 - Weather data: Primary driver of the energy market
+    - wind_generation
+    - Photovoltaic (PV) Solar Panel Energy Generation data
+    - Temperature (less useful)
 - Clean Grid Data
   - All power generation methods (nuclear,coal,wind,solar,ccgt,ocgt,etc), all UK interconnectors, demand, frequency timestamped in 4h intervals
 - Energy & Power
