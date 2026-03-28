@@ -171,6 +171,29 @@ select {
   gap: 14px;
 }
 
+.split.compare {
+  grid-template-columns: minmax(140px, 1fr) minmax(100px, auto) minmax(140px, 1fr);
+  align-items: start;
+}
+
+.split-delta {
+  text-align: center;
+  padding-top: 28px;
+}
+
+.split-delta .muted {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metric-delta {
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
 .metric {
   font-size: 26px;
   margin: 0 0 8px;

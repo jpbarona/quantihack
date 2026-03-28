@@ -36,6 +36,7 @@ export default function App() {
   const [forecastPoints, setForecastPoints] = useState<ForecastPoint[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [lastRecommendationAt, setLastRecommendationAt] = useState<string | null>(null);
 
   async function runRecommendation(state: SchedulerState) {
     setLoading(true);
@@ -49,6 +50,7 @@ export default function App() {
       });
       setRecommendation(rec);
       setForecastPoints(rec.points);
+      setLastRecommendationAt(new Date().toLocaleTimeString());
     } catch (err) {
       setError(err instanceof Error ? err.message : "Recommendation failed.");
     } finally {
@@ -118,6 +120,7 @@ export default function App() {
           recommendation={recommendation}
           loading={loading}
           error={error}
+          lastRecommendationAt={lastRecommendationAt}
           onStateChange={(patch) =>
             setSchedulerState((prev) => {
               if (!prev) {
