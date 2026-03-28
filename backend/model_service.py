@@ -87,13 +87,14 @@ class ForecastModelService:
         self.target_column = self.feature_columns[self.target_index]
         self.input_window = int(checkpoint["input_window"])
         self.forecast_horizon = int(checkpoint["forecast_horizon"])
+        self.input_feature_count = int(checkpoint["input_feature_count"])
         self.scaler_mean = _as_numpy(checkpoint["scaler_mean"])
         self.scaler_scale = _as_numpy(checkpoint["scaler_scale"])
         self.moving_avg_kernel = int(checkpoint["dlinear_moving_avg_kernel"])
         self.model = DLinearBaseline(
             input_window=self.input_window,
             forecast_horizon=self.forecast_horizon,
-            input_feature_count=len(self.feature_columns),
+            input_feature_count=self.input_feature_count,
             moving_avg_kernel=self.moving_avg_kernel,
         )
         self.model.load_state_dict(checkpoint["dlinear_state_dict"])
