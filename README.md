@@ -1,6 +1,8 @@
 # Quantihack
 
 ## Data
+- Clean Grid Data
+    - All power generation methods (nuclear,coal,wind,solar,ccgt,ocgt,etc), all UK interconnectors, demand, frequency timestamped in 4h intervals
 - Energy & Power
     - ukpn_lpn_vectorisation_delivery_plan.csv: This dataset is a geospatially-driven delivery tracker for converting UKPN’s London electricity network into structured GIS polygons.
     - Data Triage - Data centre profiles half hourly
