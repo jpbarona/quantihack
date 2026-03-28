@@ -1,7 +1,27 @@
 :root {
+  color-scheme: dark;
   font-family: "Segoe UI", Tahoma, sans-serif;
-  color: #1f2933;
-  background: #f1f3f5;
+  --bg-page: #0d1117;
+  --bg-elevated: #161b22;
+  --bg-card: #21262d;
+  --bg-input: #0d1117;
+  --bg-pill: #30363d;
+  --border: #30363d;
+  --border-strong: #484f58;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --accent: #1f6feb;
+  --accent-hover: #388bfd;
+  --timeline-track: #30363d;
+  --timeline-highlight-border: #e6edf3;
+  --timeline-highlight-ring: #f0f6fc;
+  --chart-bg: #161b22;
+  --chart-line: #58a6ff;
+  --chart-point: #8b949e;
+  --chart-point-active: #79c0ff;
+  --chart-guide: #484f58;
+  color: var(--text);
+  background: var(--bg-page);
 }
 
 * {
@@ -10,7 +30,7 @@
 
 body {
   margin: 0;
-  background: #f1f3f5;
+  background: var(--bg-page);
 }
 
 .app-shell {
@@ -24,7 +44,7 @@ body {
 }
 
 .muted {
-  color: #5c6773;
+  color: var(--text-muted);
 }
 
 .tabs {
@@ -34,16 +54,17 @@ body {
 }
 
 .tab-btn {
-  border: 1px solid #d0d7de;
-  background: #fff;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elevated);
+  color: var(--text);
   border-radius: 8px;
   padding: 10px 14px;
   cursor: pointer;
 }
 
 .tab-btn.active {
-  background: #1c7ed6;
-  border-color: #1c7ed6;
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 
@@ -54,8 +75,8 @@ body {
 }
 
 .card {
-  background: #fff;
-  border: 1px solid #dee2e6;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 16px;
 }
@@ -80,7 +101,9 @@ label {
 
 input,
 select {
-  border: 1px solid #ced4da;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-input);
+  color: var(--text);
   border-radius: 8px;
   padding: 9px;
   font-size: 14px;
@@ -94,27 +117,37 @@ select {
 }
 
 .preset-pill {
-  border: 1px solid #adb5bd;
-  background: #f8f9fa;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-pill);
+  color: var(--text);
   border-radius: 20px;
   padding: 7px 12px;
   cursor: pointer;
 }
 
 .preset-pill.active {
-  background: #1c7ed6;
-  border-color: #1c7ed6;
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 
 .primary-btn {
   margin-top: 12px;
   border: none;
-  background: #1971c2;
+  background: var(--accent);
   color: #fff;
   border-radius: 8px;
   padding: 10px 14px;
   cursor: pointer;
+}
+
+.primary-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.primary-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
 .hero-card {
@@ -139,7 +172,7 @@ select {
   height: 28px;
   border-radius: 8px;
   overflow: hidden;
-  background: #e9ecef;
+  background: var(--timeline-track);
 }
 
 .timeline-segment {
@@ -152,8 +185,8 @@ select {
   position: absolute;
   top: 2px;
   bottom: 2px;
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 2px #212529;
+  border: 2px solid var(--timeline-highlight-border);
+  box-shadow: 0 0 0 2px var(--timeline-highlight-ring);
   border-radius: 6px;
   pointer-events: none;
 }
@@ -161,7 +194,7 @@ select {
 .timeline-axis {
   display: flex;
   justify-content: space-between;
-  color: #495057;
+  color: var(--text-muted);
   font-size: 13px;
 }
 
@@ -228,9 +261,10 @@ select {
 }
 
 .chart-shell {
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px;
+  background: var(--bg-elevated);
 }
 
 .chart-svg {
@@ -239,20 +273,42 @@ select {
   border-radius: 8px;
 }
 
+.chart-svg .forecast-chart-bg {
+  fill: var(--chart-bg);
+}
+
+.chart-svg .forecast-chart-line {
+  fill: none;
+  stroke: var(--chart-line);
+  stroke-width: 2.5;
+}
+
+.chart-svg .forecast-chart-point {
+  fill: var(--chart-point);
+}
+
+.chart-svg .forecast-chart-point.is-active {
+  fill: var(--chart-point-active);
+}
+
+.chart-svg .forecast-chart-guide {
+  stroke: var(--chart-guide);
+}
+
 .chart-meta {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  color: #495057;
+  color: var(--text-muted);
   font-size: 14px;
 }
 
 .empty-state {
-  color: #5c6773;
+  color: var(--text-muted);
   padding: 12px 0;
 }
 
 .error-text {
-  color: #c92a2a;
+  color: #f85149;
   margin-top: 10px;
 }

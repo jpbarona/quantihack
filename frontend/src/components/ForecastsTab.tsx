@@ -45,15 +45,15 @@ export default function ForecastsTab({ points }: ForecastsTabProps) {
       ) : (
         <div className="chart-shell">
           <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} className="chart-svg" role="img" aria-label="Forecast chart">
-            <rect x={0} y={0} width={WIDTH} height={HEIGHT} fill="#f8f9fa" />
-            <path d={path} fill="none" stroke="#1971c2" strokeWidth={2.5} />
+            <rect className="forecast-chart-bg" x={0} y={0} width={WIDTH} height={HEIGHT} />
+            <path className="forecast-chart-line" d={path} />
             {circles.map((circle, i) => (
               <circle
                 key={`pt-${i}`}
+                className={`forecast-chart-point${hoveredIndex === i ? " is-active" : ""}`}
                 cx={circle.x}
                 cy={circle.y}
                 r={hoveredIndex === i ? 5 : 3}
-                fill={hoveredIndex === i ? "#1c7ed6" : "#495057"}
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
               />
@@ -61,11 +61,11 @@ export default function ForecastsTab({ points }: ForecastsTabProps) {
             {activeCircle && (
               <g>
                 <line
+                  className="forecast-chart-guide"
                   x1={activeCircle.x}
                   x2={activeCircle.x}
                   y1={PADDING}
                   y2={HEIGHT - PADDING}
-                  stroke="#adb5bd"
                   strokeDasharray="4 4"
                 />
               </g>
